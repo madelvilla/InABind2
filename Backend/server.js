@@ -12,11 +12,11 @@ app.use(express.json());
 const PORT = 5000;
 
 const pool = mysql.createPool({
-    host: process.env.DB_HOST, 
-    user: process.env.DB_USER,
-    port: process.env.DB_PORT,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
+    host: process.env.DB_HOST || 'sql5.freesqldatabase.com',
+    user: process.env.DB_USER || 'sql5720505',
+    port: process.env.DB_PORT || 3306,
+    password: process.env.DB_PASSWORD || '3i9TfHycxX',
+    database: process.env.DB_NAME || 'sql5720505'
 });
 
 // Promisify the pool.query method
