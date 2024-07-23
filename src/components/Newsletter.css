@@ -1,0 +1,59 @@
+.newsletter {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 500px; 
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #c08aa5;
+}
+
+.newsletter h2 {
+    margin-bottom: 10px;
+}
+
+.newsletter form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsletter .input-group {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 10px; 
+    position: relative;
+}
+
+.newsletter input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; 
+}
+
+.newsletter .error {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 5px; 
+    display: block; 
+}
+
+.newsletter button {
+    padding: 8px;
+    background-color: #5B0A35;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+}
+
+.newsletter button:hover {
+    background-color: #880E4F;
+}
+
+.newsletter .success-message {
+    color: green;
+    margin-top: 10px;
+}

@@ -1,0 +1,101 @@
+.hero-image-container {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  background: url('/public/assets/openbook.png') no-repeat center center/cover;
+  text-align: center; 
+}
+
+.hero-image-container h1,
+.hero-image-container h3,
+.hero-image-container button {
+  margin: 10px 0; 
+}
+
+.carousel-container {
+    position: relative;
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    color: #880E4F;
+}
+
+.carousel {
+    display: flex;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%; /* Ensure full width of the container */
+}
+
+.carousel-item {
+    flex: 0 0 20%; /* Default: Show 5 items at a time */
+    box-sizing: border-box;
+    padding: 5px;
+    text-align: center;
+    background: transparent;
+    border: none;
+}
+
+.carousel-item img {
+
+    height: auto;
+
+}
+
+.carousel-button {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 10px; 
+}
+
+.carousel-button.prev {
+    left: 10px; 
+}
+
+.carousel-button.next {
+    right: 10px; 
+}
+
+.carousel-button:focus {
+    outline: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .carousel-item {
+        flex: 0 0 25%; 
+    }
+}
+
+@media (max-width: 800px) {
+    .carousel-item {
+        flex: 0 0 33.33%; 
+    }
+
+    .carousel-button {
+        padding: 8px; 
+    }
+}
+
+@media (max-width: 600px) {
+    .carousel-item {
+        flex: 0 0 50%; 
+    }
+
+    .carousel-button {
+        padding: 6px; 
+    }
+}
