@@ -2,6 +2,7 @@ const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
 require('dotenv').config(); // For environment variables
+const path = require('path');
 
 const app = express();
 app.use(cors());
@@ -20,6 +21,8 @@ const pool = mysql.createPool({
 
 // Promisify the pool.query method
 const promisePool = pool.promise();
+
+app.use(express.static(path.join(__dirname, '/build')));
 
 app.get('/books', async (req, res) => {
     try {
@@ -63,6 +66,10 @@ app.post('/newsletter', async (req, res) => {
         console.error('Error executing query:', err);
         res.status(500).send('Internal Server Error');
     }
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/build', 'index.html'))
 });
 
 app.listen(PORT, () => 
