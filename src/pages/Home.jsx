@@ -11,7 +11,7 @@ const Home = () => {
     useEffect(() => {
         const fetchComingSoonBooks = async () => {
             try {
-                const response = await fetch('http://localhost:5000/coming-soon');
+                const response = await fetch('/api/coming-soon');
                 const data = await response.json();
                 setComingSoonBooks(data);
             } catch (error) {

@@ -27,7 +27,7 @@ const Newsletter = () => {
 
         // Submit email
         try {
-            const response = await fetch('http://localhost:5000/newsletter', {
+            const response = await fetch('/api/newsletter', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

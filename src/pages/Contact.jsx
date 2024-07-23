@@ -90,7 +90,7 @@ function Contact() {
         // If no errors, proceed with form submission
         if (!errors.fname && !errors.lname && !errors.email && !errors.message) {
             try {
-                const response = await fetch('http://localhost:5000/contact', {
+                const response = await fetch('/api/contact', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

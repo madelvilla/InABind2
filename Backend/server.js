@@ -1,4 +1,5 @@
 const express = require('express');
+const router = express.Router();
 const mysql = require('mysql2');
 const cors = require('cors');
 require('dotenv').config(); // For environment variables
@@ -12,19 +13,20 @@ app.use(express.json());
 const PORT = 5000;
 
 const pool = mysql.createPool({
-    host: process.env.DB_HOST || 'sql5.freesqldatabase.com',
-    user: process.env.DB_USER || 'sql5720505',
-    port: process.env.DB_PORT || 3306,
-    password: process.env.DB_PASSWORD || '3i9TfHycxX',
-    database: process.env.DB_NAME || 'sql5720505'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    port: process.env.DB_PORT,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 
 // Promisify the pool.query method
 const promisePool = pool.promise();
 
 app.use(express.static(path.join(__dirname, '/build')));
+app.use('/api', router)
 
-app.get('/books', async (req, res) => {
+router.get('/books', async (req, res) => {
     try {
         const [rows] = await promisePool.query('SELECT * FROM Books');
         res.json(rows); // Send JSON response
@@ -34,7 +36,7 @@ app.get('/books', async (req, res) => {
     }
 });
 
-app.get('/coming-soon', async (req, res) => {
+router.get('/coming-soon', async (req, res) => {
     try {
         const [rows] = await promisePool.query('SELECT * FROM ComingSoon');
         res.json(rows); // Send JSON response
@@ -44,7 +46,7 @@ app.get('/coming-soon', async (req, res) => {
     }
 });
 
-app.post('/contact', async (req, res) => {
+router.post('/contact', async (req, res) => {
     const { fname, lname, email, message } = req.body;
     try {
         const query = 'INSERT INTO ContactForm (firstName, lastName, email, message) VALUES (?, ?, ?, ?)';
@@ -56,7 +58,7 @@ app.post('/contact', async (req, res) => {
     }
 });
 
-app.post('/newsletter', async (req, res) => {
+router.post('/newsletter', async (req, res) => {
     const { email } = req.body;
     try {
         const query = 'INSERT INTO Newsletter (email) VALUES (?)';

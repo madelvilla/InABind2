@@ -9,7 +9,7 @@ const BooksComponent = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/books')
+        fetch('/api/books')
             .then(response => response.json())
             .then(data => {
                 if (Array.isArray(data)) {
