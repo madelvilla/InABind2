@@ -38,6 +38,15 @@ const BooksComponent = () => {
             case 'Price under $20':
                 filtered = filtered.filter(book => book.Price < 20);
                 break;
+            case 'Fantasy':
+                 filtered = filtered.filter(book => book.Genre === 'Fantasy');
+                 break;
+             case 'Fiction':
+                 filtered = filtered.filter(book => book.Genre === 'Fiction');
+                 break;
+             case 'ScienceFiction':
+                 filtered = filtered.filter(book => book.Genre === 'ScienceFiction');
+                 break;   
             default:
                 filtered = [...books];
                 break;
@@ -66,15 +75,23 @@ const BooksComponent = () => {
                         <button className="filter-link" onClick={() => handleFilter('Price Low to High')}>Price Low to High</button>
                         <button className="filter-link" onClick={() => handleFilter('Price High to Low')}>Price High to Low</button>
                         <button className="filter-link" onClick={() => handleFilter('Price under $20')}>Price under $20</button>
+                        <button className="filter-link" onClick={() => handleFilter('Fantasy')}>All Fantasy</button>
+                        <button className="filter-link" onClick={() => handleFilter('Fiction')}>All Fiction</button>
+                        <button className="filter-link" onClick={() => handleFilter('ScienceFiction')}>All Science-Fiction</button>
+
                     </div>
                 )}
             </div>
             <div id="main-content">
                 <div id="filter-container">
+                    <h4>Filters:</h4>
                     <button className="filter-link" onClick={() => handleFilter('')}>Show All</button>
                     <button className="filter-link" onClick={() => handleFilter('Price Low to High')}>Price Low to High</button>
                     <button className="filter-link" onClick={() => handleFilter('Price High to Low')}>Price High to Low</button>
                     <button className="filter-link" onClick={() => handleFilter('Price under $20')}>Price under $20</button>
+                    <button className="filter-link" onClick={() => handleFilter('Fantasy')}>All Fantasy</button>
+                    <button className="filter-link" onClick={() => handleFilter('Fiction')}>All Fiction</button>
+                    <button className="filter-link" onClick={() => handleFilter('ScienceFiction')}>All Science-Fiction</button>
                 </div>
                 <div id="books-container">
                     {filteredBooks.length === 0 ? (
@@ -88,7 +105,7 @@ const BooksComponent = () => {
                                         <h2 className="title">{book.Title}</h2>
                                         <p className="author">By: {book.Author}</p>
                                         <p className="Format">{book.Format}</p>
-                                        <p className="overview">Overview: {book.Overview}</p>
+                                        <p className="overview"><h5>Overview:</h5> {book.Overview}</p>
                                         <p className="price">Price: {book.Price}</p>
                                         <button className="add">Add to Cart</button>
                                     </div>

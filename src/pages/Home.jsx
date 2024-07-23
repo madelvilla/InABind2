@@ -39,11 +39,13 @@ const Home = () => {
     return (
         <>
         <div className='hero-image-container'>
-            <h1>Welcome to In a Bind Books</h1>
-            <h3>Explore Our Latest Collection</h3>
-            <Link to="/books">
-                <button type="button">Our Books</button>
-            </Link>
+            <div className='hero-text'>
+                <h1>Welcome to In a Bind Books</h1>
+                <h3>Explore Our Latest Collection</h3>
+                <Link to="/books">
+                    <button type="button">Our Books</button>
+                </Link>
+                </div>
         </div>
         <div>
             <h2>Coming Soon</h2>

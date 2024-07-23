@@ -9,10 +9,20 @@
   text-align: center; 
 }
 
-.hero-image-container h1,
-.hero-image-container h3,
+.hero-image-container h3 {
+    margin: 10px 0;
+    font-size: 3vh;
+}
+
 .hero-image-container button {
   margin: 10px 0; 
+  padding: 18px;
+  font-size: 2vh;
+}
+
+.hero-image-container h1 {
+    margin: 10px 0;
+    font-size: 6vh;
 }
 
 .carousel-container {
